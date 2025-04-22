@@ -1,0 +1,26 @@
+{% extends 'learning_platform_app/base.html' %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <h1 class="text-center mb-4">All Courses</h1>
+        <div class="row">
+            {% for course in courses %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="{{ course.image }}" class="card-img-top" alt="{{ course.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ course.title }}</h5>
+                        <p class="card-text">{{ course.description|truncatechars:100 }}</p>
+                        <p class="card-text"><strong>Price:</strong> ₦{{ course.price }}</p>
+                        <a href="{% url 'course_detail' course.id %}" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p class="text-center">No courses available at the moment.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

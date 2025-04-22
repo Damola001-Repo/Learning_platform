@@ -26,3 +26,11 @@ class CourseDetailView(View):
 class AboutPageView(View):
     def get(self, request):
         return render(request, 'learning_platform_app/about.html')
+    
+class CoursePageView(View):
+    def get(self, request):
+        courses = Course.objects.all()
+        context = {
+            'courses': courses,
+        }
+        return render(request, 'learning_platform_app/courses.html', context)
