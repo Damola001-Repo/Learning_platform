@@ -16,8 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+<<<<<<< HEAD
 from learning_platform_app.views import HomePageView, CourseDetailView, AboutPageView, CoursePageView
 from user import views
+=======
+from learning_platform_app.views import HomePageView, CourseDetailView, AboutPageView
+from user.views import UserRegistrationView
+>>>>>>> 53dee7202975b4351683cf584b71b9914ad1ba55
 
 
 urlpatterns = [
@@ -25,6 +30,10 @@ urlpatterns = [
     path('', HomePageView.as_view(), name='home'),  # Updated to use the class-based view
     path('course/<int:course_id>/', CourseDetailView.as_view(), name='course_detail'),  # Updated to use the class-based view
     path('about/', AboutPageView.as_view(), name='about'),  # Updated to use the class-based view
+<<<<<<< HEAD
     path('course/', CoursePageView.as_view(), name='course'),  # Updated to use the class-based view
     path('register/', views.register, name='register'),  # Registration page
+=======
+    path('register/', UserRegistrationView.as_view(), name='register'),  # Updated to use the class-based view
+>>>>>>> 53dee7202975b4351683cf584b71b9914ad1ba55
 ]
