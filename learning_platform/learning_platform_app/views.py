@@ -1,16 +1,28 @@
 from django.shortcuts import render
-from .models import Course, HomePage
+from .models import Course
 from django.views import View
 
 # Create your views here.
 class HomePageView(View):
     def get(self, request):
-        # Logic to fetch data from the database and render the home page
-        # For example, you might want to fetch all courses and pass them to the template
-        homepage_data = HomePage.objects.first()  # Assuming you have only one HomePage object
         courses = Course.objects.all()
+        course_name = request.GET.get('search_course')
+        if course_name != '' and course_name is not None:
+            courses = courses.filter(title__icontains=course_name)
         context = {
-            'homepage_data': homepage_data,
             'courses': courses,
         }
         return render(request, 'learning_platform_app/home.html', context)
+    
+
+class CourseDetailView(View):
+    def get(self, request, course_id):
+        course = Course.objects.get(id=course_id)
+        context = {
+            'course': course,
+        }
+        return render(request, 'learning_platform_app/detail.html', context)
+    
+class AboutPageView(View):
+    def get(self, request):
+        return render(request, 'learning_platform_app/about.html')

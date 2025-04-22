@@ -1,101 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learning Platform</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">Learning Platform</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Courses</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-                </ul>
-                <!-- Search Icon -->
-                <form class="d-flex ms-3">
-                    <input class="form-control me-2" type="search" placeholder="Search courses" aria-label="Search">
-                    <button class="btn btn-outline-primary" type="submit"><i class="fas fa-search"></i></button>
-                </form>
-                <!-- Profile Icon -->
-                <a href="#" class="btn btn-outline-secondary ms-3">
-                    <i class="fas fa-user-circle"></i> Profile
-                </a>
-            </div>
-        </div>
-    </nav>
+{% extends 'learning_platform_app/base.html' %}
+{% block content %}
+<!-- Hero Section -->
+<header class="bg-primary text-white text-center py-5">
+    <div class="container">
+        <h1>Welcome to the Learning Platform</h1>
+        <p class="lead">Explore a variety of courses and enhance your skills</p>
+        <a href="#" class="btn btn-light btn-lg">Get Started</a>
+    </div>
+</header>
 
-    <!-- Hero Section -->
-    <header class="bg-primary text-white text-center py-5">
-        <div class="container">
-            <h1>Welcome to the Learning Platform</h1>
-            <p class="lead">Explore a variety of courses and enhance your skills</p>
-            <a href="#" class="btn btn-light btn-lg">Get Started</a>
-        </div>
-    </header>
-
-    <!-- Courses Section -->
-    <section class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">Our Courses</h2>
-            <div class="row">
-                <!-- Course Card 1 -->
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Course Image">
-                        <div class="card-body">
-                            <h5 class="card-title">Course Title 1</h5>
-                            <p class="card-text">Brief description of the course.</p>
-                            <a href="#" class="btn btn-primary">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Course Card 2 -->
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Course Image">
-                        <div class="card-body">
-                            <h5 class="card-title">Course Title 2</h5>
-                            <p class="card-text">Brief description of the course.</p>
-                            <a href="#" class="btn btn-primary">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Course Card 3 -->
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Course Image">
-                        <div class="card-body">
-                            <h5 class="card-title">Course Title 3</h5>
-                            <p class="card-text">Brief description of the course.</p>
-                            <a href="#" class="btn btn-primary">Learn More</a>
-                        </div>
+<!-- Courses Section -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Our Courses</h2>
+        <div class="row">
+            <!-- Course Card 1 -->
+            {% for course in courses %}
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{{ course.image }}" class="card-img-top" alt="Course Image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ course.title }}</h5>
+                        <p class="card-text">{{ course.description }}</p>
+                        <p class="card-text"><strong>Price:</strong> ₦{{ course.price }}</p>
+                        <a href="course/{{ course.id }}" class="btn btn-primary">Learn More</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+            {% endfor %}
 
-    <!-- Footer -->
-    <footer class="bg-light text-center py-4">
-        <div class="container">
-            <p>&copy; 2025 Learning Platform. All rights reserved.</p>
         </div>
-    </footer>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
-</body>
-</html>
+    </div>
+</section>
+{% endblock %}

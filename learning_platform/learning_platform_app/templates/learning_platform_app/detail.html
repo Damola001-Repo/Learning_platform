@@ -1,0 +1,19 @@
+{% extends 'learning_platform_app/base.html' %}
+{% block content %}
+<!-- Course Detail Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{{ course.image }}" class="img-fluid" alt="{{ course.title }}">
+            </div>
+            <div class="col-md-6">
+                <h1>{{ course.title }}</h1>
+                <p class="lead">{{ course.description }}</p>
+                <p><strong>Price:</strong> ₦{{ course.price }}</p>
+                <a href="#" class="btn btn-primary">Enroll Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
