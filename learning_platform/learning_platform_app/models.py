@@ -6,9 +6,6 @@ class Course(models.Model):
     duration = models.IntegerField(help_text="Duration in hours")
     price = models.DecimalField(max_digits=10, decimal_places=2)
     image = models.CharField()
-    what_you_will_learn = models.TextField(blank=True, null=True)
-    prerequisites = models.TextField(blank=True, null=True)
-
 
     
     def __str__(self):
