@@ -1,0 +1,62 @@
+{% extends 'learning_platform_app/base.html' %}
+{% block content %}
+
+<form class="center_div">
+  {% csrf_token %}
+  <h1 class="h3 mb-3 fw-normal">Register</h1>
+
+  <div class="form-floating">
+    <!-- <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"> -->
+    {{ form.first_name }}
+    <label for="id_first_name">{{ form.first_name.label }}</label>
+  </div>
+  {% if form.first_name.errors %}
+  <div class="text-danger">{{ form.first_name.errors|join:", " }}</div>
+  {% endif %}
+
+  <div class="form-floating">
+    <!-- <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"> -->
+    {{ form.last_name }}
+    <label for="id_last_name">{{ form.last_name.label }}</label>
+  </div>
+  {% if form.last_name.errors %}
+  <div class="text-danger">{{ form.last_name.errors|join:", " }}</div>
+  {% endif %}
+
+  <div class="form-floating">
+    <!-- <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"> -->
+    {{ form.email }}
+    <label for="id_email">{{ form.email.label }}</label>
+  </div>
+  {% if form.email.errors %}
+  <div class="text-danger">{{ form.email.errors|join:", " }}</div>
+  {% endif %}
+
+  <div class="form-floating">
+    <!-- <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"> -->
+    {{ form.password1 }}
+    <label for="id_password1">{{ form.password1.label }}</label>
+  </div>
+  {% if form.password1.errors %}
+  <div class="text-danger">{{ form.password1.errors|join:", " }}</div>
+  {% endif %}
+
+  <div class="form-floating">
+    <!-- <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"> -->
+    {{ form.password2 }}
+    <label for="id_password2">{{ form.password2.label }}</label>
+  </div>
+  {% if form.password2.errors %}
+  <div class="text-danger">{{ form.password2.errors|join:", " }}</div>
+  {% endif %} 
+  {% if messages %}
+  <div>
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <button class="btn btn-primary w-100 py-2" type="submit">Register</button>
+</form>
+{% endblock %}

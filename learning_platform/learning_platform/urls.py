@@ -15,13 +15,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from learning_platform_app.views import HomePageView, CourseDetailView, AboutPageView
+from django.urls import path, include
+from learning_platform_app import urls
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', HomePageView.as_view(), name='home'),  # Updated to use the class-based view
-    path('course/<int:course_id>/', CourseDetailView.as_view(), name='course_detail'),  # Updated to use the class-based view
-    path('about/', AboutPageView.as_view(), name='about'),  # Updated to use the class-based view
+    path('', include('learning_platform_app.urls')),
+    path('user/', include('user.urls'))
 ]

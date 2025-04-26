@@ -1,0 +1,11 @@
+
+.center_div{
+    height: 100vh;
+    width: 30%;
+    flex-flow: column;
+    margin: 30px auto;
+}
+
+.h_100{
+    height: 100vh;
+}

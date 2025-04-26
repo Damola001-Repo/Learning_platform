@@ -1,0 +1,34 @@
+{% extends 'learning_platform_app/base.html' %}
+
+{% block content %}
+<form method="post" action="" class="center_div">
+  {% csrf_token %}
+  <h1 class="h3 mb-3 fw-normal text-center">Login</h1>
+
+  <div class="form-floating mb-3">
+    {{ form.username }}
+    <label for="id_username">{{ form.username.label }}</label>
+  </div>
+  {% if form.username.errors %}
+  <div class="text-danger">{{ form.username.errors|join:", " }}</div>
+  {% endif %}
+
+  <div class="form-floating mb-3">
+    {{ form.password }}
+    <label for="id_password">{{ form.password.label }}</label>
+  </div>
+  {% if form.password.errors %}
+  <div class="text-danger">{{ form.password.errors|join:", " }}</div>
+  {% endif %}
+
+  {% if messages %}
+  <div>
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <button class="btn btn-primary w-100 py-2" type="submit">Login</button>
+</form>
+{% endblock %}
