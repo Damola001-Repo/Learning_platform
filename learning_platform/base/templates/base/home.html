@@ -1,0 +1,48 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block content %}
+      <div id="textImageCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          
+          <!-- Slide 1 -->
+          <div class="carousel-item active">
+            <div class="container">
+              <div class="row align-items-center">
+                
+                <!-- Text content -->
+                <div class="col-md-6">
+                  <div class="carousel-caption">
+                    <h2 class="fw-bold">Programming is Easier Than You Think</h2>
+                    <p>Whether you're a student, artist, or entrepreneur, coding is a tool that unlocks creativity and opportunity. No experience needed!</p>
+                    <a href="{% url 'courses' %}" class="btn btn-primary mt-2 my_btn">Start Learning Now</a>
+                  </div>
+                </div>
+                
+                <!-- Image -->
+                <div class="col-md-6 text-center">
+                  <img src="{% static 'images/carousel/download.jpeg' %}" class="img-fluid" alt="Slide Image">
+                </div>
+      
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <!-- Courses section -->
+      <section class="py-5 bg-light">
+        <div class="container">
+          <h2 class="text-center mb-4">Our Courses</h2>
+          <div class="row g-4">
+            
+            <!-- Course 1 -->
+             {% include 'base/courses_component.html' %}
+      
+          </div>
+        </div>
+
+        <div class="text-center my-4">
+            <a href="{% url 'courses' %}" class="btn btn-primary btn-lg">Explore Courses</a>
+          </div>
+      </section>
+
+{% endblock content %}

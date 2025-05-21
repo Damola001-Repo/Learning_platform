@@ -1,0 +1,24 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Courses section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4">Our Courses</h2>
+            <div class="row g-4">
+
+                {% include 'base/courses_component.html' %}
+
+
+            </div>
+            <div class="text-center mb-5 mt-4 center-flex">
+                <nav aria-label="...">
+                    <ul class="pagination">
+                        <li class="page-item" ><a href="?page={{courses.previous_page_number}}" class="page-link" style="color: green;">Previous</a></li>
+                        
+                        <li class="page-item"><a class="page-link" href="?page={{courses.next_page_number}}" style="color: green;">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+{% endblock content %}

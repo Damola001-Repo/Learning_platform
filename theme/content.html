@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Course Watch Page</title>
+  <title>Learning Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Top Header -->
+<nav class="navbar navbar-expand-md navbar-light bg-light px-3">
+        <a class="navbar-brand" href="index.html">MyLogo</a>
+      
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse justify-content-between" id="navbarContent">
+          <div class="navbar-center my-2 my-md-0">
+            <form class="d-flex search-form">
+              <input class="form-control me-2 --bs-success-border-subtle" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-primary mt-2 my_btn" type="submit">Search</button>
+            </form>
+          </div>
+      
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="bi bi-person-circle me-1"></i> Login
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+<!-- Main Course Player Layout -->
+<div class="container-fluid mt-3">
+  <div class="row">
+    
+    <!-- Video Player Section -->
+    <div class="col-lg-9 mb-4">
+      <div class="ratio ratio-16x9 mb-3">
+        <iframe src="https://www.youtube.com/embed/_uQrJ0TkZlc" title="Course Video" allowfullscreen></iframe>
+      </div>
+      <h4>Lesson 1: Getting Started with Python</h4>
+      <p class="text-muted">In this lesson, you’ll get familiar with the Python environment and write your first script.</p>
+    </div>
+    
+    <!-- Sidebar Lesson List -->
+    <div class="col-lg-3">
+      <h6 class="mb-3">Course Content</h6>
+      <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action lesson-item active active-g" style="background-color: green;">
+          1. Getting Started
+        </a>
+        <a href="#" class="list-group-item list-group-item-action lesson-item">
+          2. Variables and Data Types
+        </a>
+        <a href="#" class="list-group-item list-group-item-action lesson-item">
+          3. Control Flow
+        </a>
+        <a href="#" class="list-group-item list-group-item-action lesson-item">
+          4. Functions and Modules
+        </a>
+        <a href="#" class="list-group-item list-group-item-action lesson-item">
+          5. Projects Overview
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+          <p class="mb-1">&copy; 2025 LearnToCode. All rights reserved.</p>
+          <p class="mb-0">
+            <a href="#" class="text-white text-decoration-none me-3">Privacy Policy</a>
+            <a href="#" class="text-white text-decoration-none">Terms of Service</a>
+          </p>
+        </div>
+      </footer>
+      
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+</body>
+</html>

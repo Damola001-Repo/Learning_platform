@@ -1,0 +1,60 @@
+{% extends 'base/base.html' %}
+{% block content %}
+
+<!-- Payment Section -->
+<section class="container py-5">
+  <div class="row g-5">
+    <!-- Billing Form -->
+    <div class="col-lg-8">
+      <div class="card p-4 shadow-sm">
+        <h4 class="mb-4">Billing Details</h4>
+        <form>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">First Name</label>
+              <input type="text" class="form-control" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Last Name</label>
+              <input type="text" class="form-control" required>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Card Number</label>
+            <input type="text" class="form-control" placeholder="xxxx xxxx xxxx xxxx" required>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Expiry Date</label>
+              <input type="text" class="form-control" placeholder="MM/YY" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">CVV</label>
+              <input type="text" class="form-control" placeholder="123" required>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary w-100 mt-3">Pay Now</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Course Summary -->
+    <div class="col-lg-4">
+      <div class="card shadow-sm">
+        <img src="https://img-c.udemycdn.com/course/240x135/692188_9da7_35.jpg" class="card-img-top" alt="Course Thumbnail">
+        <div class="card-body">
+          <h5 class="card-title">Python Mega Course</h5>
+          <p class="card-text">Learn Python in 60 Days by building 20 real-world apps.</p>
+          <hr>
+          <h6>Total: <span class="text-success">$29.99</span></h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

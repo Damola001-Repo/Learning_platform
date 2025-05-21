@@ -1,0 +1,50 @@
+{% load static %}
+{% block content %}
+<nav class="navbar navbar-expand-md navbar-light bg-light px-3">
+        <a class="navbar-brand" href="{% url 'home' %}">MyLogo</a>
+      
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse justify-content-between" id="navbarContent">
+          <div class="navbar-center my-2 my-md-0">
+            <form class="d-flex search-form" action="">
+              <input class="form-control me-2 --bs-success-border-subtle" type="search" placeholder="Search Course" aria-label="Search" name="q">
+              <button class="btn btn-primary mt-2 my_btn" type="submit">Search</button>
+            </form>
+          </div>
+      
+          <ul class="navbar-nav ms-auto">
+
+    <!-- My Account button - LEFT side -->
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'profile' %}">
+        {% if request.user.is_authenticated %}
+        <img src="{{avatar}}" class="rounded-circle me-1" alt="Profile" style="width: 30px; height: 30px; object-fit: cover;">
+        {% else %}
+        <img src="{% static 'images/avatar.svg' %}" class="rounded-circle me-1" alt="Profile" style="width: 30px; height: 30px; object-fit: cover;">
+        {% endif %}
+        My Account
+      </a>
+    </li>
+    <!-- Logout button - RIGHT side -->
+     {% if request.user.is_authenticated %}
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'logout' %}">
+        Logout
+      </a>
+    </li>
+  {% else %}
+    <!-- Only login visible when user is not authenticated -->
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'login' %}">
+        Login
+      </a>
+    </li>
+  {% endif %}
+</ul>
+
+        </div>
+      </nav>
+{% endblock content %}

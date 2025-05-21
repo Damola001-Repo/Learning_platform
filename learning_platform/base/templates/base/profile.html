@@ -1,0 +1,98 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Profile Section -->
+<section class="container py-5">
+  <div class="row g-4">
+    
+    <!-- Student Info -->
+    <div class="col-md-4">
+      <div class="profile-card text-center">
+        <img src="{{student.avatar.url}}" alt="Profile Image" class="profile-image mb-2" width="100" style="border-radius: 50%;" >
+        <div class="mb-2">
+          <span class="badge bg-success">🔥 5-days streak</span>
+        </div>
+
+        <h5>{{student.first_name}} {{student.last_name}}</h5>
+        <p class="text-muted">{{user.email}}</p>
+        <a href="#" class="btn btn-outline-success btn-sm mt-2">Edit Profile</a>
+      </div>
+      <div class="mt-4">
+  <h6 class="text-center mb-3">Learning Streak</h6>
+  <div class="calendar border rounded p-3">
+    <div class="d-flex flex-wrap justify-content-between text-center">
+      <div style="width: 14%;" class="text-muted">Sun</div>
+      <div style="width: 14%;" class="text-muted">Mon</div>
+      <div style="width: 14%;" class="text-muted">Tue</div>
+      <div style="width: 14%;" class="text-muted">Wed</div>
+      <div style="width: 14%;" class="text-muted">Thu</div>
+      <div style="width: 14%;" class="text-muted">Fri</div>
+      <div style="width: 14%;" class="text-muted">Sat</div>
+    </div>
+    <div class="d-flex flex-wrap text-center mt-2">
+      <!-- Sample calendar days -->
+      <!-- You can dynamically render ✅ based on actual streak data -->
+      ${[...Array(31)].map((_, i) => `
+        <div style="width: 14%;" class="py-1 ${[1,2,3,5,6].includes(i+1) ? 'text-success' : ''}">
+          ${i+1} ${[1,2,3,5,6].includes(i+1) ? '✅' : ''}
+        </div>
+      `).join('')}
+    </div>
+  </div>
+</div>
+
+    </div>
+
+    <!-- Purchased Courses -->
+    <div class="col-md-8">
+      <div class="profile-card">
+        <h5 class="mb-3">My Courses</h5>
+
+        <!-- Course Item -->
+         {% for enrollment in enrolled_courses %}
+        <div class="d-flex mb-4 align-items-start">
+          <img src="{{enrollment.course.thumbnail.url}}" class="me-3 rounded" width="120" alt="Course Thumbnail">
+          <div>
+            <h6 class="mb-1">{{enrollment.course.title}}</h6>
+            <div class="progress mb-1" style="height: 8px;">
+              <div class="progress-bar" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <p class="progress-label text-muted mb-1">65% Completed</p>
+            <a href="#" class="btn btn-sm btn-primary me-2">Continue Course</a>
+          </div>
+        </div>
+        {% endfor %}
+
+        <!-- Course Item Completed -->
+        <!-- <div class="d-flex mb-4 align-items-start">
+          <img src="https://img-c.udemycdn.com/course/240x135/851712_fc61_6.jpg" class="me-3 rounded" width="120" alt="Course Thumbnail">
+          <div>
+            <h6 class="mb-1">HTML & CSS Bootcamp for Beginners</h6>
+            <div class="progress mb-1" style="height: 8px;">
+              <div class="progress-bar bg-success" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <p class="progress-label text-muted mb-1">Completed</p>
+            <a href="#" class="btn btn-sm btn-outline-success me-2">Review Course</a>
+            <a href="#" class="certificate-link" target="_blank">🎓 View Certificate</a>
+          </div>
+        </div> -->
+
+        <!-- Course In Progress -->
+        <!-- <div class="d-flex mb-4 align-items-start">
+          <img src="https://img-c.udemycdn.com/course/240x135/567828_67d0.jpg" class="me-3 rounded" width="120" alt="Course Thumbnail">
+          <div>
+            <h6 class="mb-1">JavaScript for Web Developers</h6>
+            <div class="progress mb-1" style="height: 8px;">
+              <div class="progress-bar bg-warning" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <p class="progress-label text-muted mb-1">30% Completed</p>
+            <a href="#" class="btn btn-sm btn-primary mt-1">Continue Course</a>
+          </div>
+        </div> -->
+
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

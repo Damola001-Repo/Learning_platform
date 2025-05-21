@@ -1,0 +1,14 @@
+{% for course in courses %}
+            <div class="col-12 col-sm-6 col-lg-4">
+                <a href="{% url 'course-details' course.id %}" class="text-decoration-none text-dark">
+                  <div class="card h-100 shadow-sm">
+                    <img src="{{course.thumbnail.url}}" class="card-img-top" alt="Course 1">
+                    <div class="card-body">
+                      <h5 class="card-title">{{course.title}}</h5>
+                      <p class="text-success fw-semibold">${{course.price}}</p>
+                      <p class="card-text">{{course.description}}</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+{% endfor %}
